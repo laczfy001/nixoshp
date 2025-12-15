@@ -36,7 +36,7 @@ Config {
                              , "--high"     , "darkred"
                              ] 50
 	, Run Cpu
-            [ "-t", "<fc=#7aa2f7> CPU:</fc> <total>%"
+            [ "-t", "<fc=#7aa2f7>CPU:</fc> <total>%"
             , "-L", "30"
             , "-H", "70"
             , "-l", "#9ece6a"
@@ -44,7 +44,7 @@ Config {
             , "-h", "#f7768e"
             ] 10
         , Run Memory
-            [ "-t", "<fc=#7aa2f7> MEM:</fc> <usedratio>%"
+            [ "-t", "<fc=#7aa2f7>MEM:</fc> <usedratio>%"
             , "-L", "30"
             , "-H", "70"
             , "-l", "#9ece6a"
@@ -52,7 +52,7 @@ Config {
             , "-h", "#f7768e"
             ] 10
         , Run Battery
-            [ "-t", "<fc=#7aa2f7> BAT:</fc> <acstatus>"
+            [ "-t", "<fc=#7aa2f7>BAT:</fc> <acstatus>"
             , "-L", "20"
             , "-H", "80"
             , "-l", "#f7768e"

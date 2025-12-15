@@ -6,6 +6,7 @@
     xmobar
     rofi
     networkmanager_dmenu
+    rofi-power-menu
   ];
 
   services = {
