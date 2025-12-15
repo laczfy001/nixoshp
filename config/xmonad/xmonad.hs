@@ -70,8 +70,9 @@ myManageHook =
     [ className =? "Gimp" --> doFloat
     , className =? "librewolf" --> doShift "1"
     , className =? "discord" --> doShift "3"
-    , className =? "thunderbord" --> doShift "2"
+    , className =? "thunderbird" --> doShift "2"
     , className =? "nemo" --> doShift "5"
+    , className =? "alacritty" --> doShift "4"
     ]
     <+> insertPosition Below Newer
 
