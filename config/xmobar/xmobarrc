@@ -13,11 +13,14 @@ Config {
    -- Layout
    , sepChar         = "%"
    , alignSep        = "}{"
-   , template        = " %XMonadLog% }{ %cpu% <fc=#444b6a>│</fc> %memory% <fc=#444b6a>│</fc> %coretemp% <fc=#444b6a>│</fc> %battery% <fc=#444b6a>│</fc> %date% "
+   , template        = " %XMonadLog% }{ %disku% <fc=#444b6a>|</fc> %cpu% <fc=#444b6a>│</fc> %memory% <fc=#444b6a>│</fc> %coretemp% <fc=#444b6a>│</fc> %battery% <fc=#444b6a>│</fc> %date% "
 
    -- Plugins
    , commands        =
         [ Run XMonadLog
+	, Run  DiskU [("/", "<free>")]
+       ["-L", "20", "-H", "50", "-m", "1", "-p", "3"]
+       20
 	, Run CoreTemp       [ "--template" , "Temp: <core0>°C | <core1>°C"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
