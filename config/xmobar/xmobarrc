@@ -1,7 +1,7 @@
 -- TokyoNight XMobar Config
 Config {
    -- Appearance
-     font            = "Iosevka Mono 12"
+     font            = "Iosevka 12"
    , additionalFonts = [ "Iosevka Mono 12" ]
    , bgColor         = "#1a1b26"
    , fgColor         = "#a9b1d6"
@@ -18,10 +18,17 @@ Config {
    -- Plugins
    , commands        =
         [ Run XMonadLog
-	, Run  DiskU [("/", "<free>")]
-       ["-L", "20", "-H", "50", "-m", "1", "-p", "3"]
-       20
-	, Run CoreTemp       [ "--template" , "Temp: <core0>°C | <core1>°C"
+	, Run DiskU [("/", "<free>/<size>")]
+            [ "-t", "<fc=#7aa2f7> DISK:</fc> <free>"
+            , "-L", "20"
+            , "-H", "70"
+            , "-h", "#9ece6a"
+            , "-n", "#e0af68"
+            , "-l", "#f7768e"
+            , "-m", "1"
+            , "-p", "3"
+            ] 20
+	, Run CoreTemp       [ "--template" , "CPU TEMP: <core0>°C | <core1>°C"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
                              , "--low"      , "darkgreen"
