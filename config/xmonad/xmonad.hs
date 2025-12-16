@@ -71,8 +71,8 @@ myManageHook =
     , className =? "librewolf" --> doShift "1"
     , className =? "discord" --> doShift "3"
     , className =? "thunderbird" --> doShift "2"
-    , className =? "nemo" --> doShift "5"
-    , className =? "alacritty" --> doShift "4"
+    , className =? "Nemo" --> doShift "5"
+    , className =? "Alacritty" --> doShift "4"
     ]
     <+> insertPosition Below Newer
 
@@ -84,6 +84,7 @@ myKeys =
   , ("M-r", spawn "dmenu_run")
   , ("M-l", spawn "slock")
   , ("M-<Print>", spawn "screengrab")
+  , ("M-e", spawn "rofi -show power-menu -modi power-menu:rofi-power-menu")
   , -- Window management
     ("M-q", kill)
   , ("M-j", windows W.focusDown)
