@@ -13,7 +13,7 @@ Config {
    -- Layout
    , sepChar         = "%"
    , alignSep        = "}{"
-   , template        = " %XMonadLog% }{ %disku% <fc=#444b6a>|</fc> %cpu% <fc=#444b6a>│</fc> %memory% <fc=#444b6a>│</fc> %coretemp% <fc=#444b6a>│</fc> %battery% <fc=#444b6a>│</fc> %date% "
+   , template        = " %XMonadLog% }{ <fc=#7aa2f7>DISK:</fc> %disku% <fc=#444b6a>|</fc> %cpu% <fc=#444b6a>│</fc> %memory% <fc=#444b6a>│</fc> %coretemp% <fc=#444b6a>│</fc> %battery% <fc=#444b6a>│</fc> %date% "
 
    -- Plugins
    , commands        =
@@ -28,7 +28,7 @@ Config {
             , "-m", "1"
             , "-p", "3"
             ] 20
-	, Run CoreTemp       [ "--template" , "CPU TEMP: <core0>°C | <core1>°C"
+	, Run CoreTemp       [ "--template" , "CPU TEMP: <core0>°C <fc=#444b6a>|</fc> <core1>°C"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
                              , "--low"      , "darkgreen"

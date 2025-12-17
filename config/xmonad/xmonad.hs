@@ -148,7 +148,10 @@ myXmobarPP =
   def
     { ppSep = xmobarColor colorBrBlk "" " │ "
     , ppTitleSanitize = xmobarStrip
-    , ppCurrent = xmobarColor colorCyn ""
+--   , ppCurrent = xmobarColor colorCyn ""
+--   , ppCurrent = xmobarBorder "VBoth" "#ffcc00" 2 . pad
+    , ppCurrent = \ws -> "<box type=VBoth width=2 color=#0db97d mt=0 mb=2>" ++ ws ++ "</box>"
+    , ppWsSep   = " "
     , ppHidden = xmobarColor colorFg ""
     , ppHiddenNoWindows = xmobarColor colorBrBlk ""
     , ppUrgent = xmobarColor colorRed colorYlw
