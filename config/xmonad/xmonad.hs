@@ -74,7 +74,7 @@ myManageHook =
     , className =? "Nemo" --> doShift "5"
     , className =? "Alacritty" --> doShift "4"
     ]
-    <+> insertPosition Below Newer
+    <+> insertPosition Above Newer
 
 -- Key bindings (matching dwm as closely as possible)
 myKeys =
@@ -175,7 +175,7 @@ myConfig =
     , focusedBorderColor = myFocusedBorderColor
     , layoutHook = myLayoutHook
     , manageHook = myManageHook <+> manageDocks
-    , startupHook = spawnOnce "xsetroot -cursor_name left_ptr"
+    , startupHook = spawnOnce "xsetroot -cursor_name left_ptr" 
     }
     `additionalKeysP` myKeys
 
