@@ -16,6 +16,7 @@ import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.Loggers
 import XMonad.Util.SpawnOnce
 import XMonad.Actions.CycleWS
+import XMonad.Hooks.ManageHelpers (doFullFloat, doCenterFloat, isFullscreen, isDialog, doFocus, doRaise)
 
 -- TokyoNight Colors
 colorBg = "#1a1b26" -- background
@@ -67,7 +68,9 @@ myLayoutHook =
 -- Window rules (matching dwm config)
 myManageHook =
   composeAll
-    [ className =? "Gimp" --> doFloat
+    [ isDialog     --> doCenterFloat <+> doFocus <+> doRaise
+    , isFullscreen --> doFullFloat
+    , className =? "Gimp" --> doFloat
     , className =? "librewolf" --> doShift "1"
     , className =? "discord" --> doShift "3"
     , className =? "thunderbird" --> doShift "2"
