@@ -13,7 +13,7 @@
     filezilla
     mysql-workbench
     libreoffice
-    #notepadqq
+    notepad-next
     vivaldi
     arandr
     gvfs
