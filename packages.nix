@@ -6,6 +6,8 @@
     environment = {
         systemPackages = with pkgs; [
 
+    neovim
+    unstable.widelands
     font-awesome
     #brave
     librewolf
