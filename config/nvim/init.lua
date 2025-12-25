@@ -1,51 +1,107 @@
--- init.lua
+-- ========================================================================== --
+--                               ALAP BEÁLLÍTÁSOK                             --
+-- ========================================================================== --
 
-vim.o.termguicolors = true       -- 24-bit színek
-vim.o.number = true               -- sor számok
-vim.o.relativenumber = true       -- relatív sor számok
-vim.o.expandtab = true            -- tab = space
-vim.o.shiftwidth = 2
-vim.o.tabstop = 2
-vim.o.smartindent = true
-vim.o.cursorline = true
+-- Leader billentyű beállítása a Szóközre (nagyon hasznos gyorsbillentyűkhöz)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({
-      "git",
-      "clone",
-      "--depth",
-      "1",
-      "https://github.com/wbthomason/packer.nvim",
-      install_path
-    })
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
-end
+local opt = vim.opt
 
-local packer_bootstrap = ensure_packer()
+opt.number = true           -- Sorok számozása
+opt.relativenumber = true   -- Relatív sorszámok (könnyebb ugrálni)
+opt.mouse = "a"             -- Egér használatának engedélyezése
+opt.ignorecase = true       -- Keresésnél ne számítson a kis/nagybetű...
+opt.smartcase = true        -- ...kivéve ha nagybetűt is írsz
+opt.termguicolors = true    -- 24-bites színek engedélyezése (kell a Tokyo Night-hoz)
+opt.tabstop = 4             -- Egy Tab 4 szóköznek felel meg
+opt.shiftwidth = 4          -- Automatikus behúzás mértéke
+opt.expandtab = true        -- Tab helyett szóközöket használjon
+opt.clipboard = "unnamedplus" -- Rendszer vágólap használata (ha van támogatás)
+opt.cursorline = true       -- Aktuális sor kiemelése
 
-require("packer").startup(function(use)
-  use "wbthomason/packer.nvim"
+-- ========================================================================== --
+--                           LAZY.NVIM TELEPÍTÉSE                             --
+-- ========================================================================== --
 
-  use({
-    "folke/tokyonight.nvim",
-    config = function()
-      vim.g.tokyonight_style = "storm"          -- storm, night, day
-      vim.g.tokyonight_italic_comments = true
-      vim.g.tokyonight_transparent = false
-      vim.g.tokyonight_enable_italic = true
-
-
-      vim.cmd("colorscheme tokyonight-storm")
-    end
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git", "clone", "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath,
   })
+end
+vim.opt.rtp:prepend(lazypath)
 
-  if packer_bootstrap then
-    require("packer").sync()
-  end
-end)
+-- ========================================================================== --
+--                            PLUGINEK BEÁLLÍTÁSA                             --
+-- ========================================================================== --
+
+require("lazy").setup({
+  -- 1. A TOKYO NIGHT TÉMA
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("tokyonight").setup({
+        style = "storm", -- Választható: storm, night, moon, day
+        transparent = false,
+        terminal_colors = true,
+        styles = {
+          comments = { italic = true },
+          keywords = { italic = true },
+        },
+      })
+      vim.cmd([[colorscheme tokyonight-storm]])
+    end,
+  },
+
+  -- 2. STATUS LINE (Az alsó információs sáv)
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("lualine").setup({ options = { theme = "tokyonight" } })
+    end,
+  },
+
+ -- 3. SZINTAKSIS KIEMELÉS (Treesitter)
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      -- Megpróbáljuk betölteni a modult, ha még nem érhető el, nem dobunk hibát rögtön
+      local status, configs = pcall(require, "nvim-treesitter.configs")
+      if not status then
+          return
+      end
+
+      configs.setup({
+        ensure_installed = { "lua", "vim", "vimdoc", "javascript", "python", "html", "css" },
+        highlight = { enable = true },
+        indent = { enable = true },
+      })
+    end,
+  },
+  -- 4. FÁJLKERESŐ (Telescope) - Kell hozzá a 'fzf' vagy 'ripgrep' a gépedre
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    keys = {
+      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Fájl keresése" },
+      { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Szöveg keresése" },
+    },
+  },
+
+  -- 5. FÁJLKEZELŐ (Nvim-tree)
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      require("nvim-tree").setup()
+    end,
+    keys = {
+      { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Fájlkezelő ki/be" },
+    },
+  },
+})
