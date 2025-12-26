@@ -6,6 +6,7 @@
     environment = {
         systemPackages = with pkgs; [
 
+    vlc
     neovim
     unstable.widelands
     font-awesome
