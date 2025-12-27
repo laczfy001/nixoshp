@@ -74,7 +74,7 @@
   services.displayManager.ly.enable = true;
   
   # MATE desktop
-  services.xserver.desktopManager.mate.enable = true;
+  #services.xserver.desktopManager.mate.enable = true;
 
   #i3 window manager
   #services.xserver.windowManager.i3.enable = true;

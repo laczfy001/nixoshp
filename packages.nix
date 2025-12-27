@@ -8,7 +8,7 @@
 
     vlc
     neovim
-    unstable.widelands
+    #unstable.widelands
     font-awesome
     #brave
     librewolf
