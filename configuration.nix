@@ -19,9 +19,6 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  #Custom kernel
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-
   #Disk cuccok
   services.gvfs.enable = true;
   services.udisks2.enable = true;
