@@ -6,6 +6,7 @@
     environment = {
         systemPackages = with pkgs; [
 
+    zstd
     vlc
     neovim
     #unstable.widelands
