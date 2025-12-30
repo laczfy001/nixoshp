@@ -6,6 +6,7 @@
     environment = {
         systemPackages = with pkgs; [
 
+    mate.mate-calc
     font-awesome
     zstd
     vlc
