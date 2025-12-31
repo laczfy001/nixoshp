@@ -29,7 +29,7 @@
     slstatus
     feh
     sublime3
-    iosevka
+    #iosevka
     nordic
     dunst
     libnotify

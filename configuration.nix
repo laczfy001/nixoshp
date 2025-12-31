@@ -202,6 +202,7 @@
   gnumake
   gcc
   binutils
+  iosevka
   pkg-config
   ];
 
