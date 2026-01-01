@@ -81,6 +81,15 @@
 
   #i3 window manager
   #services.xserver.windowManager.i3.enable = true;
+  
+  # Fontconfig
+  fonts = {
+  enableDefaultPackages = true;
+  packages = with pkgs; [
+    iosevka
+    ];
+  };
+
 
   programs.nix-ld = {
   enable = true;
@@ -202,7 +211,6 @@
   gnumake
   gcc
   binutils
-  iosevka
   pkg-config
   ];
 
