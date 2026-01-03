@@ -6,6 +6,7 @@
     environment = {
         systemPackages = with pkgs; [
 
+    lincity-ng
     mate.mate-calc
     font-awesome
     zstd

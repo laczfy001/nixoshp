@@ -81,7 +81,10 @@
 
   #i3 window manager
   #services.xserver.windowManager.i3.enable = true;
-  
+
+  # IceWM
+  services.xserver.windowManager.icewm.enable = true;
+
   # Fontconfig
   fonts = {
   enableDefaultPackages = true;
