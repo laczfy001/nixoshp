@@ -6,7 +6,8 @@
     environment = {
         systemPackages = with pkgs; [
 
-    lincity-ng
+    vesktop
+    #lincity-ng
     mate.mate-calc
     font-awesome
     zstd
@@ -54,7 +55,7 @@
     dxvk
     intel-gpu-tools
     lxqt.screengrab
-    discord
+    #discord
     dbus
     sysstat
     inkscape-with-extensions

@@ -34,11 +34,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1766473571,
-        "narHash": "sha256-5G1NDO2PulBx1RoaA6U1YoUDX0qZslpPxv+n5GX6Qto=",
+        "lastModified": 1768323494,
+        "narHash": "sha256-yBXJLE6WCtrGo7LKiB6NOt6nisBEEkguC/lq/rP3zRQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "76701a179d3a98b07653e2b0409847499b2a07d3",
+        "rev": "2c3e5ec5df46d3aeee2a1da0bfedd74e21f4bf3a",
         "type": "github"
       },
       "original": {
@@ -65,11 +65,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1766309749,
-        "narHash": "sha256-3xY8CZ4rSnQ0NqGhMKAy5vgC+2IVK0NoVEzDoOh4DA4=",
+        "lastModified": 1768564909,
+        "narHash": "sha256-Kell/SpJYVkHWMvnhqJz/8DqQg2b6PguxVWOuadbHCc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a6531044f6d0bef691ea18d4d4ce44d0daa6e816",
+        "rev": "e4bae1bd10c9c57b2cf517953ab70060a828ee6f",
         "type": "github"
       },
       "original": {
@@ -140,11 +140,11 @@
         "xserver-meson-flags": "xserver-meson-flags"
       },
       "locked": {
-        "lastModified": 1766204441,
-        "narHash": "sha256-CKoWqMDv7O81q6v6RTUGfMilx5aulOCw+HHdtkJM1qc=",
+        "lastModified": 1767976122,
+        "narHash": "sha256-XuwCA9yG1QPzgjeTK4wnyZRauQAOTIGUrmLi36GzpcY=",
         "ref": "refs/heads/main",
-        "rev": "bb35b081bb7256cbafb1c53c911985d86f51da04",
-        "revCount": 140,
+        "rev": "adc3fb5d9a2d2a3e128dfe0d3d3b793962b4a000",
+        "revCount": 160,
         "type": "git",
         "url": "https://codeberg.org/takagemacoed/xlibre-overlay"
       },

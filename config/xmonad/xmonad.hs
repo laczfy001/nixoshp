@@ -72,6 +72,7 @@ myManageHook =
     , isFullscreen --> doFullFloat
     , className =? "Gimp" --> doFloat
     , className =? "librewolf" --> doShift "1"
+    , className =? "vesktop" --> doShift "3"
     , className =? "discord" --> doShift "3"
     , className =? "thunderbird" --> doShift "2"
     , className =? "Nemo" --> doShift "5"
