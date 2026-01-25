@@ -75,12 +75,15 @@
 
   #services.xserver.displayManager.lightdm.enable = true;
   services.displayManager.ly.enable = true;
-  
+
   # MATE desktop
   #services.xserver.desktopManager.mate.enable = true;
 
   #i3 window manager
   #services.xserver.windowManager.i3.enable = true;
+
+  # Niri
+  programs.niri.enable = true;
 
   # IceWM
   services.xserver.windowManager.icewm.enable = true;

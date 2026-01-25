@@ -8,9 +8,14 @@
     xlibre-overlay.url = "git+https://codeberg.org/takagemacoed/xlibre-overlay";
     # Unstable channel (for some newer packages)
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-  };
+    # Home Manager
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+ };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, xlibre-overlay, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, xlibre-overlay, home-manager, ... }@inputs:
   let
     system = "x86_64-linux";
 
@@ -28,13 +33,22 @@
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = { inherit unstable; }; # így tudod használni a modulokban
+      specialArgs = { inherit inputs unstable; };# így tudod használni a modulokban
       modules = [
         ./configuration.nix
 
         xlibre-overlay.nixosModules.overlay-xlibre-xserver
         xlibre-overlay.nixosModules.overlay-xlibre-xf86-video-intel
-	xlibre-overlay.nixosModules.overlay-xlibre-xf86-input-libinput
+    	xlibre-overlay.nixosModules.overlay-xlibre-xf86-input-libinput
+
+        # Home manager
+         home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs unstable; };
+            home-manager.users.laci = import ./home.nix;
+          }
       ];
     };
   };

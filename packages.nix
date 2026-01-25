@@ -6,6 +6,7 @@
     environment = {
         systemPackages = with pkgs; [
 
+    ranger
     vesktop
     #lincity-ng
     mate.mate-calc
