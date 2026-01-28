@@ -16,8 +16,7 @@
     neovim
     #unstable.widelands
     font-awesome
-    #brave
-    librewolf
+    brave
     #yad
     filezilla
     mysql-workbench
