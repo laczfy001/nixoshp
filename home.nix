@@ -6,6 +6,7 @@
   home.homeDirectory = "/home/laci";
   home.stateVersion = "25.11";
   home.packages = with pkgs; [
+  unstable.faugus-launcher
   ];
 
 

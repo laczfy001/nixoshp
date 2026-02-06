@@ -6,6 +6,7 @@
     environment = {
         systemPackages = with pkgs; [
 
+    floorp-bin
     ranger
     vesktop
     #lincity-ng
@@ -26,7 +27,7 @@
     arandr
     gvfs
     udisks2
-    unstable.faugus-launcher
+#    unstable.faugus-launcher
     thunderbird
     slstatus
     feh
