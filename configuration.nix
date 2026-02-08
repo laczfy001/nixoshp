@@ -82,9 +82,6 @@
   #i3 window manager
   #services.xserver.windowManager.i3.enable = true;
 
-  # Niri
-  programs.niri.enable = true;
-
   # IceWM
   services.xserver.windowManager.icewm.enable = true;
 
@@ -202,6 +199,12 @@
   #programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
 
+  #Podman
+  virtualisation.podman = {
+  enable = true;
+  dockerCompat = true;
+    };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -219,6 +222,7 @@
   gcc
   binutils
   pkg-config
+  distrobox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

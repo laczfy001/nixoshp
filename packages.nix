@@ -6,6 +6,7 @@
     environment = {
         systemPackages = with pkgs; [
 
+    #jetbrains.datagrip
     floorp-bin
     ranger
     vesktop
@@ -20,7 +21,7 @@
     brave
     #yad
     filezilla
-    mysql-workbench
+    #mysql-workbench
     libreoffice
     notepad-next
     vivaldi
